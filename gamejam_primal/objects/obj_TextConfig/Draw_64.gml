@@ -1,27 +1,34 @@
-//Chooses font
-	draw_set_font(f_TelaInic)
-	draw_set_colour(c_white)
+//Creates menu text
+	for (var i = 0; i < menu_max; i++)
+	{
+	    var item = menu[i];
+	    var dy = menu_start_y + (menu_spacing * i);
+	    var value_display = "";
 
-//Draw configs text
-	draw_text(450,200,"Settings")
+	    //Set color: Yellow if selected, White if not
+	    draw_set_colour(i == index ? c_yellow : c_white);
 
-//Configures color changing options
-	for(var i=0;i<op_max;i++){
-		draw_text(450,200 + (100 * i),opcoes[i])
-	
-		if(index==i){
-			draw_set_colour(c_yellow)	
-		}
-		else{
-			draw_set_colour(c_white)	
-		}
+	    //Switch logic to prepare the display value and extra graphics
+	    switch (item.type) 
+	    {
+	        case "slider":
+	            var sliderVal = variable_global_get(item.ref);
+	            if (is_undefined(sliderVal)) sliderVal = 50; 
+	            value_display = string(sliderVal);
+	            draw_sprite_ext(spr_ControlerSound, sliderVal, 650, dy, 2, 2, 0, c_white, 1);
+	        break;
+
+	        case "list":
+	            value_display = item.options[item.index];
+	        break;
+
+	        case "keybind":
+	            value_display = "(Press Enter or Space)";
+	        break;
+	    }
+
+	    draw_text(400, dy, item.name + ": " + value_display);
 	}
 
-//Draws font as chosen above
-	draw_set_font(-1)
-
-//Draws sound control options
-	draw_sprite_ext(spr_ControlerSound, global.nag1, 450, 450, 2, 2,0, c_white, 1)	
-	draw_sprite_ext(spr_ControlerSound, global.nag2, 450, 550, 2, 2,0, c_white, 1)	
-
-
+//Reset colour
+	draw_set_colour(c_white);

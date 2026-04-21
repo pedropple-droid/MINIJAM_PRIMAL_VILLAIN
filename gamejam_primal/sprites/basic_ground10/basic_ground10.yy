@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":4,
   "parent":{
-    "name":"ground",
-    "path":"folders/sprites/ground.yy",
+    "name":"Ground",
+    "path":"folders/sprites/Ground.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

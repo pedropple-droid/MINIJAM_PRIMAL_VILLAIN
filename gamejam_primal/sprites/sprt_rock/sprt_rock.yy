@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":9,
   "parent":{
-    "name":"obstacles",
-    "path":"folders/sprites/obstacles.yy",
+    "name":"Obstacles",
+    "path":"folders/sprites/Obstacles.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

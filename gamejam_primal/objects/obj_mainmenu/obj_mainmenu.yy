@@ -10,8 +10,8 @@
   "name":"obj_mainmenu",
   "overriddenProperties":[],
   "parent":{
-    "name":"Handlers",
-    "path":"folders/objects/Handlers.yy",
+    "name":"Menus",
+    "path":"folders/objects/Handlers/Menus.yy",
   },
   "parentObjectId":null,
   "persistent":false,

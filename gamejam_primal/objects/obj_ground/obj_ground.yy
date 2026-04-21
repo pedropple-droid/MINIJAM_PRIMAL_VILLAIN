@@ -8,8 +8,8 @@
   "name":"obj_ground",
   "overriddenProperties":[],
   "parent":{
-    "name":"objects",
-    "path":"folders/objects.yy",
+    "name":"Ground",
+    "path":"folders/objects/Ground.yy",
   },
   "parentObjectId":null,
   "persistent":false,

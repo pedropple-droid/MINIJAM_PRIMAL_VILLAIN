@@ -9,8 +9,8 @@
   "name":"obj_egg",
   "overriddenProperties":[],
   "parent":{
-    "name":"objects",
-    "path":"folders/objects.yy",
+    "name":"Main",
+    "path":"folders/objects/Main.yy",
   },
   "parentObjectId":null,
   "persistent":false,

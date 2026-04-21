@@ -1,4 +1,4 @@
-function scr_ingamecamera()
+function scr_IngameCamera()
 {
 //Initializing Viewports
 	view_enabled = true;

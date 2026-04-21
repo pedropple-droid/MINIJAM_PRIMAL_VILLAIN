@@ -1,22 +1,25 @@
-// NEED TO ADD INTRO
-// NEED TO ADD TREX IN BG
-
-// WILL ADD SOUND
-// WILL ADD EFFECTS
-
-// MIGHT ADD OBSTACLE VARIATION
-// MIGHT ADD PARALLAX
-// MIGHT ADD END SEQUENCE
-// MIGHT ADD BETTER SPRITES
-
-// WILL NOT ADD EXTRA ROOMS
-// WILL NOT ADD LEVELS
-// WILL NOT ADD SCALABILITY, FOR NOW
-
-//Main variables
-	lanes = [500, 564, 628];
-	spawn_timer = 10;
-	cam_shake = 0;
-		
 //Camera
-	scr_ingamecamera()
+	scr_IngameCamera()
+
+//Game over check variable
+	global.game_over = false
+
+//Score system variable
+	global.player_score = 0;
+	
+	//Score multiplier system
+		global.multi_timer = 0;
+		global.score_multiplier = 1;
+
+//Lanes
+	global.lane_y = 
+	{
+		"1": 500,
+		"2": 564,
+		"3": 628,
+	};
+	
+	global.game_depth_base = 0;
+
+//Variables
+	scoring = true

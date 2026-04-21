@@ -1,51 +1,62 @@
 //Inputs handler
-
-	keyboard_check_pressed(ord("W") || vk_up) 
+	//Useful variables
+	//Use max() to check multiple keys at once
+	var key_up    = keyboard_check_pressed(ord("W"))  || keyboard_check_pressed(vk_up);
+	var key_down  = keyboard_check_pressed(ord("S"))  || keyboard_check_pressed(vk_down);
+	var key_left  = keyboard_check_pressed(ord("A"))  || keyboard_check_pressed(vk_left);
+	var key_right = keyboard_check_pressed(ord("D"))  || keyboard_check_pressed(vk_right);
+	var key_select = keyboard_check_pressed(vk_enter) || keyboard_check_pressed(vk_space);
+	var key_escape = keyboard_check_pressed(vk_escape);
+	
+	var current = menu[index]
+	
+	if keyboard_check_pressed(vk_escape)
+	{
+		room_goto(rm_mainmenu)
+	};
+		
+	//Navigating
+	if key_up
 	{
 		index--;
-		if(index < 1) index = op_max - 2;
-	}
-	
-	keyboard_check_pressed(ord("W") || vk_down) 
+		if (index < 0) index = (menu_max - 1);
+		
+		//audio_play_sound(snd_Click, 1, 0)
+	};
+
+	if key_down
 	{
 		index++;
-		if(index > op_max -2) index = 1	
-	}
-
-//Config index handler
-
-	if(index == 0)
-	{
-		//Placeholder index
-	};
-	
-	//Music configuration
-  	if keyboard_check_pressed(vk_left)
-		{
-			global.nag1 = 1
-		}
-		if keyboard_check_pressed(vk_right)
-		{
-			global.nag1 = 0
-		};	
-	
-	//FX configuration
-	
-	if(index == 2)
-	{
-		if keyboard_check_pressed(vk_left)
-		{
-			global.nag2 = 1
-		}
-		if keyboard_check_pressed(vk_right)
-		{
-			global.nag2 = 0
-		}	
-	};
-	
-	if(index == 3)
-	{
-		//Placeholder index
+		if (index >= menu_max) index = 0;
+		
+		//audio_play_sound(snd_Click, 1, 0)
 	};
 
 
+	//Interacting
+	switch current.type
+	{
+		case "slider":
+			var val = variable_global_get(current.ref);
+
+			if (key_left)  val -= current.step;
+			if (key_right) val += current.step;
+
+			val = clamp(val, current.min, current.max);
+			variable_global_set(current.ref, val);
+		break;
+
+		case "list":
+			if (key_left)  current.index--;
+			if (key_right) current.index++;
+
+			var len = array_length(current.options);
+			
+			if (current.index < 0) current.index = len - 1;
+			if (current.index >= len) current.index = 0;
+		break;
+
+		case "keybind":
+			if (key_select) room_goto(rm_keybinds);
+		break;
+	};

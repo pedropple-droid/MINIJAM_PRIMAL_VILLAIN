@@ -10,8 +10,8 @@
   "name":"obj_TextConfig",
   "overriddenProperties":[],
   "parent":{
-    "name":"Configurações",
-    "path":"folders/objects/Configurações.yy",
+    "name":"Menus",
+    "path":"folders/objects/Handlers/Menus.yy",
   },
   "parentObjectId":null,
   "persistent":false,

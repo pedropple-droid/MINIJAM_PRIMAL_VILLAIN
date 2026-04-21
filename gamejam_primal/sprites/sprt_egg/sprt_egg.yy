@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":0,
   "parent":{
-    "name":"bugu",
-    "path":"folders/sprites/bugu.yy",
+    "name":"Bugu",
+    "path":"folders/sprites/Bugu.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

@@ -48,8 +48,8 @@
   "nineSlice":null,
   "origin":9,
   "parent":{
-    "name":"obstacles",
-    "path":"folders/sprites/obstacles.yy",
+    "name":"Hazards",
+    "path":"folders/sprites/Hazards.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
